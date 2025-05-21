@@ -38,6 +38,7 @@ public class TestWithPageObjects {
         loginPage.enterUserName("student");
         loginPage.enterPassword("Password23423423");
         loginPage.submit();
+        driver.quit();
     }
 
     @Test
@@ -49,5 +50,6 @@ public class TestWithPageObjects {
         loginPage.enterUserName("student123");
         loginPage.enterPassword("Password23423423");
         loginPage.submit();
+        driver.quit();
     }
 }
