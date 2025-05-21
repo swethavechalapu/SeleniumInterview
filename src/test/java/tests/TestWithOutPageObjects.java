@@ -1,3 +1,5 @@
+package tests;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -7,10 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pageobjects.LoginPage;
 
-public class LauchBrowser {
+public class TestWithOutPageObjects {
 
 
-    private static final Logger logger = LogManager.getLogger(LauchBrowser.class);
+    private static final Logger logger = LogManager.getLogger(TestWithOutPageObjects.class);
 
     @Test(description = "Login test valid scenario")
     public void loginvalidtest() throws InterruptedException {
@@ -30,7 +32,6 @@ public class LauchBrowser {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://practicetestautomation.com/practice-test-login/");
-
         driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("student");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Password12asd3");
         driver.findElement(By.xpath("//button[@id='submit']")).click();
@@ -38,18 +39,4 @@ public class LauchBrowser {
         driver.quit();
     }
 
-    @Test
-    public void testUsingPom() throws InterruptedException {
-
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.navigateToURl("https://practicetestautomation.com/practice-test-login/");
-        loginPage.enterUserName("student");
-        loginPage.enterPassword("Password123");
-        loginPage.submit();
-        Thread.sleep(3000);
-
-
-    }
 }
