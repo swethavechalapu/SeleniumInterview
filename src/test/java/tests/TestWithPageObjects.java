@@ -25,6 +25,20 @@ public class TestWithPageObjects {
         loginPage.enterPassword("Password123");
         loginPage.submit();
         Thread.sleep(3000);
+        driver.quit();
+
+    }
+
+    @Test
+    public void invalidLoginTest(){
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.navigateToURl("https://practicetestautomation.com/practice-test-login/");
+        loginPage.enterUserName("student");
+        loginPage.enterPassword("Password23423423");
+        loginPage.submit();
+
 
     }
 }
